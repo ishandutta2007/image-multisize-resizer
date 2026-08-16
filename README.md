@@ -14,17 +14,17 @@ The tool automatically calculates proportional heights based on your target widt
 
 ## Installation
 
-Install the required dependencies:
+Install the package using pip:
 
 ```bash
-pip install -r requirements.txt
+pip install .
 ```
 
-*(Note: The main dependency required is `Pillow`)*
+This will install the required dependencies (like `Pillow`) and make the `multi-resizer` command available globally in your environment.
 
 ## Usage
 
-The CLI script is `multi_resizer.py`. It accepts the following arguments:
+Once installed, you can use the `multi-resizer` command. It accepts the following arguments:
 
 - `-i`, `--image` (Required): Path to the input image file.
 - `-s`, `--sizes` (Required): Comma-separated list of target widths (e.g., `300,600,1200`).
@@ -36,7 +36,7 @@ The CLI script is `multi_resizer.py`. It accepts the following arguments:
 Saves copies directly next to your original file.
 
 ```bash
-python multi_resizer.py -i photo.jpg -s 400,800,1200
+multi-resizer -i photo.jpg -s 400,800,1200
 ```
 *Output files generated:* `photo_400px.jpg`, `photo_800px.jpg`, and `photo_1200px.jpg`.
 
@@ -44,7 +44,7 @@ python multi_resizer.py -i photo.jpg -s 400,800,1200
 Saves copies into a dedicated folder (the tool will create the directory if it doesn't exist).
 
 ```bash
-python multi_resizer.py --image elements.png --sizes 150,300 --output ./thumbnails
+multi-resizer --image elements.png --sizes 150,300 --output ./thumbnails
 ```
 *Output files generated:* `./thumbnails/elements_150px.png` and `./thumbnails/elements_300px.png`.
 
