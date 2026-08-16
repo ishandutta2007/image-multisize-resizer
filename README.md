@@ -1,17 +1,21 @@
-# Image Multisize Resizer
+# Image Multisize Resizer: Batch Image Resizing CLI Tool for Python
 
-A robust, production-ready Python Command Line Interface (CLI) tool that allows you to resize a single image into multiple widths in one go. It uses Python's built-in `argparse` library for the CLI and the `Pillow` library for high-quality image processing.
+[![PyPI version](https://badge.fury.io/py/image-multisize-resizer.svg)](https://badge.fury.io/py/image-multisize-resizer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Versions](https://img.shields.io/pypi/pyversions/image-multisize-resizer.svg)](https://pypi.org/project/image-multisize-resizer/)
 
-The tool automatically calculates proportional heights based on your target widths, ensuring the original aspect ratio is perfectly maintained using high-quality LANCZOS resampling.
+A robust, production-ready **Python Command Line Interface (CLI) tool** for fast and efficient **batch image resizing**. It allows you to automatically resize a single image into multiple widths in one go, saving time and effort. Built with Python's `argparse` and the powerful `Pillow` library for high-quality **image processing**.
+
+The tool automatically calculates proportional heights based on your target widths, ensuring the original **aspect ratio** is perfectly maintained using high-quality **LANCZOS resampling**. Ideal for web developers, designers, and anyone needing quick, multi-resolution image generation for responsive web design or app thumbnails.
 
 ## 👥 For Users
 
 ### Features
-- **Multiple Sizes at Once**: Provide a comma-separated list of widths to generate multiple images simultaneously.
-- **Aspect Ratio Preservation**: Automatically scales the height proportionally to the provided width.
-- **High-Quality Resampling**: Uses `Image.Resampling.LANCZOS` for the best possible resized image quality.
-- **Custom Output Directory**: Save the generated images in the same directory as the original, or specify a custom output path.
-- **Descriptive Naming**: Automatically appends the generated width to the filename (e.g., `photo_800px.jpg`).
+- **Batch Resizing / Multiple Sizes at Once**: Provide a comma-separated list of widths to generate multiple images simultaneously.
+- **Aspect Ratio Preservation**: Automatically scales the height proportionally to the provided width to prevent distortion.
+- **High-Quality Resampling**: Uses `Image.Resampling.LANCZOS` for the best possible resized image quality and sharpness.
+- **Custom Output Directory**: Save the generated images in the same directory as the original, or specify a custom output path for better organization.
+- **Descriptive Auto-Naming**: Automatically appends the generated width to the filename (e.g., `photo_800px.jpg`).
 
 ### Installation
 You can install the package directly via pip:
@@ -23,12 +27,12 @@ pip install image-multisize-resizer
 *(Note: If installing from source, clone the repository and run `pip install .`)*
 
 ### Usage
-Once installed, the `multi-resizer` command is available globally.
+Once installed, the `multi-resizer` command is available globally on your system.
 
 **Arguments:**
-- `-i`, `--image` (Required): Path to the input image file.
-- `-s`, `--sizes` (Required): Comma-separated list of target widths (e.g., `300,600,1200`).
-- `-o`, `--output` (Optional): Directory to save resized images. Defaults to the input image directory.
+- `-i`, `--image` (Required): Path to the input image file you want to resize.
+- `-s`, `--sizes` (Required): Comma-separated list of target widths in pixels (e.g., `300,600,1200`).
+- `-o`, `--output` (Optional): Directory to save the resized output images. Defaults to the input image directory.
 
 **Examples:**
 
