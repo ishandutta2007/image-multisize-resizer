@@ -90,25 +90,25 @@ Please refer to the `CONTRIBUTING.md` file for more details on how to contribute
 The publishing process for this package to PyPI is fully automated using GitHub Actions and PyPI Trusted Publishing (OIDC).
 
 ### How Automated Publishing Works
-Whenever changes are pushed to the `main` branch that include modifications to `pyproject.toml` (specifically, bumping the version number), the GitHub Actions workflow (`.github/workflows/publish.yml`) is triggered.
+Whenever a new git tag starting with `v` (e.g., `v0.1.1`) is pushed to the repository, the GitHub Actions workflow (`.github/workflows/publish.yml`) is triggered.
 
 The workflow will:
 1. Checkout the repository.
 2. Set up Python.
 3. Build the source distribution (`sdist`) and wheel (`bdist_wheel`) using the `build` module.
-4. Publish the package securely to PyPI using the `pypa/gh-action-pypi-publish` action via an OIDC token. The `skip-existing: true` flag ensures that if the version hasn't been bumped, the step will simply skip publishing without failing.
+4. Publish the package securely to PyPI using the `pypa/gh-action-pypi-publish` action via an OIDC token. The `skip-existing: true` flag ensures that if the version already exists, the step will simply skip publishing without failing.
 
 ### How to Release a New Version
 To publish a new version of the package to PyPI, follow these steps:
 1. Open `pyproject.toml`.
 2. Update the `version = "X.Y.Z"` field to the new desired version.
-3. Commit and push the changes to the `main` branch:
+3. Commit your changes.
+4. Create a new git tag matching the version (with a `v` prefix) and push it to origin:
    ```bash
-   git add pyproject.toml
-   git commit -m "Bump version to X.Y.Z"
-   git push origin main
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
    ```
-4. The GitHub Action will automatically build and publish the new version to PyPI.
+5. The GitHub Action will trigger on the pushed tag and automatically build and publish the new version to PyPI.
 
 ### Initial Setup (For Project Owner)
 If this is your first time setting up the repository for PyPI publishing via OIDC:
