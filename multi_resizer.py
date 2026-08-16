@@ -40,7 +40,7 @@ def resize_image(image_path, target_widths, output_dir=None):
     except Exception as e:
         print(f"An error occurred while processing the image: {e}")
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Resize an image into multiple sizes proportionally.")
     
     parser.add_argument(
@@ -69,3 +69,6 @@ if __name__ == "__main__":
         exit(1)
 
     resize_image(args.image, widths_list, args.output)
+
+if __name__ == "__main__":
+    main()

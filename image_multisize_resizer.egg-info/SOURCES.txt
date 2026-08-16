@@ -1,0 +1,10 @@
+LICENSE
+README.md
+multi_resizer.py
+pyproject.toml
+image_multisize_resizer.egg-info/PKG-INFO
+image_multisize_resizer.egg-info/SOURCES.txt
+image_multisize_resizer.egg-info/dependency_links.txt
+image_multisize_resizer.egg-info/entry_points.txt
+image_multisize_resizer.egg-info/requires.txt
+image_multisize_resizer.egg-info/top_level.txt
