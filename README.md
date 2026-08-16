@@ -4,33 +4,33 @@ A robust, production-ready Python Command Line Interface (CLI) tool that allows 
 
 The tool automatically calculates proportional heights based on your target widths, ensuring the original aspect ratio is perfectly maintained using high-quality LANCZOS resampling.
 
-## Features
+## 👥 For Users
 
+### Features
 - **Multiple Sizes at Once**: Provide a comma-separated list of widths to generate multiple images simultaneously.
 - **Aspect Ratio Preservation**: Automatically scales the height proportionally to the provided width.
 - **High-Quality Resampling**: Uses `Image.Resampling.LANCZOS` for the best possible resized image quality.
 - **Custom Output Directory**: Save the generated images in the same directory as the original, or specify a custom output path.
 - **Descriptive Naming**: Automatically appends the generated width to the filename (e.g., `photo_800px.jpg`).
 
-## Installation
-
-Install the package using pip:
+### Installation
+You can install the package directly via pip:
 
 ```bash
-pip install .
+pip install image-multisize-resizer
 ```
 
-This will install the required dependencies (like `Pillow`) and make the `multi-resizer` command available globally in your environment.
+*(Note: If installing from source, clone the repository and run `pip install .`)*
 
-## Usage
+### Usage
+Once installed, the `multi-resizer` command is available globally.
 
-Once installed, you can use the `multi-resizer` command. It accepts the following arguments:
-
+**Arguments:**
 - `-i`, `--image` (Required): Path to the input image file.
 - `-s`, `--sizes` (Required): Comma-separated list of target widths (e.g., `300,600,1200`).
 - `-o`, `--output` (Optional): Directory to save resized images. Defaults to the input image directory.
 
-### CLI Usage Examples
+**Examples:**
 
 **1. Basic Usage**
 Saves copies directly next to your original file.
@@ -48,13 +48,72 @@ multi-resizer --image elements.png --sizes 150,300 --output ./thumbnails
 ```
 *Output files generated:* `./thumbnails/elements_150px.png` and `./thumbnails/elements_300px.png`.
 
-## Error Handling
-
+### Error Handling
 - Gracefully handles missing input files.
 - Creates the target output directory if it does not already exist.
 - Validates the target sizes argument to ensure it contains a valid list of integers.
 
-## Requirements
+---
 
-- Python 3.x
-- Pillow
+## 💻 For Developers
+
+### Local Setup
+To set up the project locally for development:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ishandutta2007/image-multisize-resizer.git
+   cd image-multisize-resizer
+   ```
+2. Create and activate a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   # On Windows use: venv\Scripts\activate
+   # On Linux/macOS use: source venv/bin/activate
+   ```
+3. Install the package in editable mode along with dependencies:
+   ```bash
+   pip install -e .
+   ```
+
+### Requirements
+- Python 3.7+
+- Pillow >= 9.5.0
+
+### Contributing
+Please refer to the `CONTRIBUTING.md` file for more details on how to contribute to this project. We welcome bug reports, feature requests, and pull requests.
+
+---
+
+## 📦 For Package Publishers
+
+The publishing process for this package to PyPI is fully automated using GitHub Actions and PyPI Trusted Publishing (OIDC).
+
+### How Automated Publishing Works
+Whenever changes are pushed to the `main` branch that include modifications to `pyproject.toml` (specifically, bumping the version number), the GitHub Actions workflow (`.github/workflows/publish.yml`) is triggered.
+
+The workflow will:
+1. Checkout the repository.
+2. Set up Python.
+3. Build the source distribution (`sdist`) and wheel (`bdist_wheel`) using the `build` module.
+4. Publish the package securely to PyPI using the `pypa/gh-action-pypi-publish` action via an OIDC token. The `skip-existing: true` flag ensures that if the version hasn't been bumped, the step will simply skip publishing without failing.
+
+### How to Release a New Version
+To publish a new version of the package to PyPI, follow these steps:
+1. Open `pyproject.toml`.
+2. Update the `version = "X.Y.Z"` field to the new desired version.
+3. Commit and push the changes to the `main` branch:
+   ```bash
+   git add pyproject.toml
+   git commit -m "Bump version to X.Y.Z"
+   git push origin main
+   ```
+4. The GitHub Action will automatically build and publish the new version to PyPI.
+
+### Initial Setup (For Project Owner)
+If this is your first time setting up the repository for PyPI publishing via OIDC:
+1. Go to your project on PyPI (or create the project if it doesn't exist).
+2. Navigate to **Manage > Publishing**.
+3. Add a new **GitHub publisher**.
+4. Provide the GitHub repository owner (`ishandutta2007`), repository name (`image-multisize-resizer`), and workflow filename (`publish.yml`).
+5. This grants the GitHub Action permission to publish to PyPI securely without needing to store API tokens as secrets.
