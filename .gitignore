@@ -1,3 +1,4 @@
-
-*.bk
 *.bak
+*.bk
+*.egg-info
+__pycache__
