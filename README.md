@@ -133,5 +133,17 @@ If this is your first time setting up the repository for PyPI publishing via OID
 
 ---
 
+## 💖 Support
+
+Thank you so much for using **Image Multisize Resizer**! If this tool has been helpful to you, please consider supporting the project:
+
+- ⭐ **Star the repository** on GitHub to show your love and help others discover it.
+- 🍴 **Fork, contribute, or share** the project with your friends, colleagues, and developer community.
+- ☕ **Buy me a coffee**: If you'd like to support ongoing development and maintenance, consider sponsoring via the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007).
+
+Every bit of support is immensely appreciated! Thank you! 🙌
+
+---
+
 ## 🌟 Star History
 [![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/image-multisize-resizer&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/image-multisize-resizer&type=date&legend=top-left)
